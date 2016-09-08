@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LZWAlgorithm.Core", "LZWAlgorithm.Core\LZWAlgorithm.Core.csproj", "{F62EEC77-7104-4560-877D-8D19153533CB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{3D3D1ECF-5E9C-4A3D-84AA-D2EDDB9C5AAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F62EEC77-7104-4560-877D-8D19153533CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F62EEC77-7104-4560-877D-8D19153533CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F62EEC77-7104-4560-877D-8D19153533CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3D1ECF-5E9C-4A3D-84AA-D2EDDB9C5AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3D1ECF-5E9C-4A3D-84AA-D2EDDB9C5AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3D1ECF-5E9C-4A3D-84AA-D2EDDB9C5AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3D1ECF-5E9C-4A3D-84AA-D2EDDB9C5AAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
