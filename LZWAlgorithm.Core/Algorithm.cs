@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LZWAlgorithm.Core
 {
@@ -35,11 +31,11 @@ namespace LZWAlgorithm.Core
             }
         }
 
-        public void Calculate()
+        public string Calculate()
         {
 
             var encodingPhrase = ListOfCodesAndWords[0].ToString();
-            string thread = "";
+            var thread = "";
             for(var i = 1; i < InputString.Length; i++)
             {
                 
@@ -47,7 +43,9 @@ namespace LZWAlgorithm.Core
                 encodingPhrase += InputString.ToCharArray()[i].ToString();
                 if (!ListOfCodesAndWords.Contains(encodingPhrase))
                 {
+
                     ListOfCodesAndWords.Add(encodingPhrase);
+                    //Some code must be there
                     continue;
                 }
                 for (var index = 0; index < ListOfCodesAndWords.Count; index++)
@@ -55,12 +53,12 @@ namespace LZWAlgorithm.Core
                     if (ListOfCodesAndWords[index].ToString() == previousWord)
                     {
                         thread += index.ToString();
+                        encodingPhrase = "";
+                        break;
                     }
                 }
-                encodingPhrase = "";
-
             }
-            Console.WriteLine(thread);
+            return thread;
 
         }
 

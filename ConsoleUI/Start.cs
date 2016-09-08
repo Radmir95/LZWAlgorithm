@@ -16,18 +16,8 @@ namespace ConsoleUI
             Algorithm algorithm = new Algorithm("hello world");
 
             algorithm.InitializeDictionary();
-            algorithm.Calculate();
 
-            var list = algorithm.GetListOfCodesAndWords();
-
-
-            foreach (var word in list)
-            {
-                
-                Console.WriteLine(word);
-
-            }
-
+            Console.WriteLine(algorithm.Calculate());
             Console.ReadLine();
 
         }
