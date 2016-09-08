@@ -18,6 +18,7 @@ namespace LZWAlgorithm.Core
             if (inputString == null)
                 throw new ArgumentNullException("Input string can't be null");
             InputString = inputString;
+            InputString = "abacabadabacabae";
             ListOfCodesAndWords = new ArrayList();
         }
 
@@ -38,16 +39,28 @@ namespace LZWAlgorithm.Core
         {
 
             var encodingPhrase = ListOfCodesAndWords[0].ToString();
-
-            foreach (var word in InputString)
+            string thread = "";
+            for(var i = 1; i < InputString.Length; i++)
             {
-                encodingPhrase += word;
+                
+                var previousWord = encodingPhrase;
+                encodingPhrase += InputString.ToCharArray()[i].ToString();
                 if (!ListOfCodesAndWords.Contains(encodingPhrase))
                 {
                     ListOfCodesAndWords.Add(encodingPhrase);
+                    continue;
                 }
+                for (var index = 0; index < ListOfCodesAndWords.Count; index++)
+                {
+                    if (ListOfCodesAndWords[index].ToString() == previousWord)
+                    {
+                        thread += index.ToString();
+                    }
+                }
+                encodingPhrase = "";
 
             }
+            Console.WriteLine(thread);
 
         }
 
