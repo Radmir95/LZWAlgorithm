@@ -36,8 +36,18 @@ namespace LZWAlgorithm.Core
 
         public void Calculate()
         {
-            
 
+            var encodingPhrase = ListOfCodesAndWords[0].ToString();
+
+            foreach (var word in InputString)
+            {
+                encodingPhrase += word;
+                if (!ListOfCodesAndWords.Contains(encodingPhrase))
+                {
+                    ListOfCodesAndWords.Add(encodingPhrase);
+                }
+
+            }
 
         }
 
