@@ -12,13 +12,7 @@ namespace ConsoleUI
     {
         public static void Main(string[] args)
         {
-
-            Algorithm algorithm = new Algorithm("hello world");
-
-            algorithm.InitializeDictionary();
-
-            Console.WriteLine(algorithm.Calculate());
-            Console.ReadLine();
+         
 
         }
     }
