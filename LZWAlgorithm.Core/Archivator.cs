@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace LZWAlgorithm.Core
 {
@@ -8,7 +7,7 @@ namespace LZWAlgorithm.Core
         public static string InputString;
         internal static int _currentKey;
         internal static Dictionary<int, string> InitialDictionary;
-        internal static string _compressedString;
+        internal static Dictionary<int, int> _compressedString;
 
         private static CompressingAlgorithm _compresser;
         private static DecompressingAlgorithm _decompresser;
@@ -31,7 +30,7 @@ namespace LZWAlgorithm.Core
 
         }
 
-        public static string Compress()
+        public static Dictionary<int ,int> Compress()
         {
             Initialize();
             return _compresser.Calculate();

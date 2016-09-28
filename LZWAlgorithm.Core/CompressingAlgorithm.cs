@@ -6,12 +6,13 @@ namespace LZWAlgorithm.Core
     internal class CompressingAlgorithm
     {
 
-        public string Calculate()
+        public Dictionary<int, int> Calculate()
         {
             var dictionary = Archivator.InitialDictionary.ToDictionary(keyValue => keyValue.Key, keyValue => keyValue.Value);
             var countOfValues = Archivator._currentKey;
             var encodingPhrase = dictionary[0];
-            var thread = "";
+            var thread = new Dictionary<int, int>();
+            var countThread = 0;
             for(var currentSymbol = 1; currentSymbol <Archivator.InputString.Length; currentSymbol++)
             {
                 
@@ -20,11 +21,12 @@ namespace LZWAlgorithm.Core
                 if (dictionary.ContainsValue(encodingPhrase)) continue;
                 dictionary.Add(countOfValues,encodingPhrase);
                 countOfValues++;
-                thread += GetCodeOfWord(dictionary, previousWord) + " ";
+                thread.Add(countThread, GetCodeOfWord(dictionary, previousWord));
+                countThread++;
                 encodingPhrase = Archivator.InputString.ToCharArray()[currentSymbol].ToString();
 
             }
-            thread += GetCodeOfWord(dictionary, encodingPhrase);
+            thread.Add(countThread, GetCodeOfWord(dictionary, encodingPhrase));
             Archivator._compressedString = thread;
             return thread;
 

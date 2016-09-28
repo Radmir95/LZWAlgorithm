@@ -11,8 +11,7 @@ namespace LZWAlgorithm.Core
             var temp = Archivator._compressedString;
 
             var key = Archivator._currentKey;
-
-            var decompressed = temp.ToCharArray()[0].ToString();
+            var decompressed = temp[0].ToString();
             var firstCode = Convert.ToInt32(decompressed);
 
             var dictionary = Archivator.InitialDictionary.ToDictionary(keyValue => keyValue.Key, keyValue => keyValue.Value);
@@ -21,24 +20,22 @@ namespace LZWAlgorithm.Core
 
             var prevStep = decompressed;
 
-            for (var index = 1; index < temp.Length; index++)
+            for (var index = 1; index < temp.Count; index++)
             {
-
-                var code = (int)char.GetNumericValue(temp.ToCharArray()[index]);
+                var code = temp[index];
 
                 var word = dictionary[code];
 
                 decompressed += word;
-
+       
                 var newWord = prevStep + word.ToCharArray()[0];
 
                 dictionary.Add(key, newWord);
                 key++;
 
-                prevStep = word;
+               prevStep = word;
 
             }
-
             return decompressed;
         }
     }
